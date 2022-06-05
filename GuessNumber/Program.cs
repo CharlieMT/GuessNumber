@@ -34,6 +34,7 @@ namespace GuessNumber
         private static void GameCore()
         {
             var number = DrawNumber();
+            int numberOfTries = 0;
             while (true)
             {
                 Console.WriteLine("Podaj twoja liczbę : ");
@@ -42,6 +43,7 @@ namespace GuessNumber
                     Console.WriteLine("Podano nie prawidłową wartość sprobuj jeszcze raz \n");
                     continue;
                 }
+                numberOfTries++;
 
                 if (playerNumber > number)
                 {
@@ -51,7 +53,7 @@ namespace GuessNumber
 
                 if (playerNumber < number)
                 {
-                    Console.WriteLine("Twoja liczna jest za nisk");
+                    Console.WriteLine("Twoja liczna jest za niska");
                     continue;
                 }
 
@@ -59,7 +61,7 @@ namespace GuessNumber
                     break;
             }
 
-            Console.WriteLine($"Gratulacje Zgadłeś !! \nWygrana Liczba to {number} \n");
+            Console.WriteLine($"Gratulacje Zgadłeś za {numberOfTries} razem !! \nWygrana Liczba to {number} \n");
         }
 
         private static bool ExitMenu()
